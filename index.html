@@ -8,10 +8,12 @@
     <script type="text/javascript">
         function showAndroidToast(toast) {
 
-              var colors = ["color1":"Red","color2":"Green","color3":"Blue"];
-              Android.showToast(colors["color1"]);
+              var colors = {"color1":"Red","color2":"Green","color3":"Blue"};
+              // Android.showToast(colors["color1"]);
               for (var key in colors) {
                   var value = colors[key];
+                  console.log("key =" + key);
+                  console.log("value =" + value);
                   alert("Key is " + key + ", value is" + value);
                   Android.showToast(value);
               }
