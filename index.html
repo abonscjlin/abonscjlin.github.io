@@ -6,7 +6,15 @@
     <script type="text/javascript">
         function showAndroidToast(toast) {
             var colors = ["color1":"Red","color2":"Green","color3":"Blue"];
-            Android.showToast(colors);
+
+            for (var k in colors){
+              if (colors.hasOwnProperty(k)) {
+                 alert("Key is " + k + ", value is" + colors[k]);
+                 Android.showToast(k,colors[k]);
+
+              }
+          }
+
         }
     </script>
   </head>
