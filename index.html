@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+
     <script type="text/javascript">
         function showAndroidToast(toast) {
 
@@ -11,8 +13,7 @@
               for (var key in colors) {
                   var value = colors[key];
                   alert("Key is " + key + ", value is" + value);
-                  // Android.showToast(value);
-
+                  Android.showToast(value);
               }
             Android.showToast(toast);
         }
@@ -20,7 +21,6 @@
   </head>
   <body>
 
-    <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
 
   </body>
 </html>
