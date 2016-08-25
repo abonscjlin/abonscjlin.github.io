@@ -7,14 +7,12 @@
         function showAndroidToast(toast) {
             var colors = ["color1":"Red","color2":"Green","color3":"Blue"];
             Android.showToast(colors["color1"]);
+            for (var key in colors) {
+                var value = colors[key];
+                alert("Key is " + key + ", value is" + value);
+                Android.showToast(value);
 
-            for (var k in colors){
-              if (colors.hasOwnProperty(k)) {
-                 alert("Key is " + k + ", value is" + colors[k]);
-                 Android.showToast(colors[k]);
-
-              }
-          }
+            }
 
         }
     </script>
