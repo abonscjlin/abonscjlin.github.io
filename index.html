@@ -3,10 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-
+    <script type="text/javascript">
+        function showAndroidToast(toast) {
+            Android.showToast(toast);
+        }
+    </script>
   </head>
   <body>
-    <h1>test<h1>
+
+    <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
 
   </body>
 </html>
