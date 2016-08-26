@@ -7,6 +7,7 @@
     <script type="text/javascript">
 
         function sendToAndroid() {
+              //Collect form data
               var values={};
               var comment= document.getElementById("comment").value;
               var ratting =document.getElementById("ratting").value;
@@ -15,11 +16,16 @@
 
               for (var key in values) {
                   var value = values[key];
-                  console.log("key =" + key);
-                  console.log("value =" + value);
-                  Android.pushData(key,value);//Push data to android.
+                  //Push data to android.
+                  Android.pushData(key,value);
               }
-              Android.finish();//Tell android user are submit.
+              //Tell android form are submitted.
+              Android.finish();
+        }
+        function didClickCancel(){
+
+          //Tell android user did click cancel.
+          Android.cancel();
         }
     </script>
   </head>
@@ -39,8 +45,9 @@
       <option value="0">0</option>
     </select>
     <br>
-    <textarea name="comment" id="comment" rows="8" cols="40" maxlength="1000" placeholder="Enter comments(1000 characters)">njdjdju</textarea>
+    <textarea name="comment" id="comment" rows="8" cols="40" maxlength="1000" placeholder="Enter comments(1000 characters)"></textarea>
     <br>
+    <input type="button" value="Cancel" onClick="didClickCancel()" />
     <input type="button" value="Submit" onClick="sendToAndroid()" />
 
   </body>
