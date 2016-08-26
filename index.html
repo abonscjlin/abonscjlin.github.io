@@ -3,24 +3,45 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
 
     <script type="text/javascript">
-        function showAndroidToast(toast) {
 
-              var colors = {"color1":"Red","color2":"Green","color3":"Blue"};
-              for (var key in colors) {
-                  var value = colors[key];
+        function showAndroidToast(toast) {
+              var values={};
+              var comment= document.getElementById("comment").value;
+              var ratting =document.getElementById("ratting").value;
+              values['comment']=comment;
+              values['ratting']=ratting;
+
+              for (var key in values) {
+                  var value = values[key];
                   console.log("key =" + key);
                   console.log("value =" + value);
-                  Android.showToast(key,value);
+                  Android.pushData(key,value);//Push data to android.
               }
-            Android.showToast(toast);
+              Android.finish();//Tell android user are submit.
         }
     </script>
   </head>
   <body>
-
+    <label for="ratting">Ratting:</label>
+    <select name="" id="ratting">
+      <option value="10">10</option>
+      <option value="9">9</option>
+      <option value="8">8</option>
+      <option value="7">7</option>
+      <option value="6">6</option>
+      <option value="5" SELECTED>5</option>
+      <option value="4">4</option>
+      <option value="3">3</option>
+      <option value="2">2</option>
+      <option value="1">1</option>
+      <option value="0">0</option>
+    </select>
+    <br>
+    <textarea name="comment" id="comment" rows="8" cols="40" maxlength="1000" placeholder="Enter comments(1000 characters)">njdjdju</textarea>
+    <br>
+    <input type="button" value="Submit" onClick="showAndroidToast('Hello Android!')" />
 
   </body>
 </html>
