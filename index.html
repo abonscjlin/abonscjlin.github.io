@@ -14,13 +14,21 @@
               values['comment']=comment;
               values['ratting']=ratting;
 
-              for (var key in values) {
-                  var value = values[key];
-                  //Push data to android.
-                  Android.pushData(key,value);
+              //Check item is correct
+              if (comment.length==0) {
+                //Tell android to show message.
+                Android.showToast("Plese fill out form.");
+
+              }else {
+
+                for (var key in values) {
+                    var value = values[key];
+                    //Push data to android.
+                    Android.pushData(key,value);
+                }
+                //Tell android form are submitted.
+                Android.submit();
               }
-              //Tell android form are submitted.
-              Android.submit();
         }
         function didClickCancel(){
 
