@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NPS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+        html,body{margin:0;padding:0;font-family: "Microsoft JhengHei","Microsoft YaHei", Verdana, Arial;}
+        .main{width: 100%;position: relative;min-height: 250px;}
+        .content{margin: 24px;}
+        h1{margin-bottom: 20px;font-size: 20px;color: #333;}
+        p{margin-bottom: 20px;font-size: 16px;color: #757575;}
+        select{width: 100%; font-size: 14px;color: #bababa;height: 32px; line-height: 32px;}
+        select option {background: #fff;color:#757575;padding: 10px;}
+        /*
+        select:hover {border: 1px solid #1194f6;}
+        select option:hover {background: #757575 !important;color:#000 !important;}
+        */
+        .main .btn_box{height: 52px;　margin-top: -52px;padding: 8px;position: absolute;bottom: 0;right: 0;}
+        .main .btn_box .button{color: #1193f6;margin-right: 8px;padding-right: 8px;padding-left: 8px; display: inline-block;font-size: 14px;text-decoration: none;height: 36px; line-height: 36px;font-weight:bold;}
+        .textbox{position: relative;}
+        .textbox textarea{padding: 8px;min-height: 350px;font-size: 14px;color: #bababa !important;}
+        .textbox #charNum{position: absolute;bottom: 0;right: 8px;font-size: 12px;color: #bababa;line-height: 36px;}
+        /* remove rounded corners */
+        .ui-btn {
+          border: 0px !important;
+          background-color: #f9f9f9 !important;
+        }
+
+    </style>
+        
+</head>
+
+<body>
+  <div class="main" data-role="page" id="pageone">
+     <div class="content">
+         <h1>Feedback</h1>
+         <p>
+             How likely are you to recommend this phone to a friend or colleague?
+         </p>
+         <select name="">
+          <option value="">Select a value</option>
+          <option value="10">10 (Extremely likely)</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="7">7</option>
+          <option value="7">6</option>
+          <option value="7">5</option>
+          <option value="9">4</option>
+          <option value="8">3</option>
+          <option value="7">2</option>
+          <option value="7">1</option>
+         </select>
+         
+     </div>
+     <div class="btn_box">
+         <a class="button" href="#">CANCEL</a>
+         <a class="button" href="#pagetwo" data-transition="slide">NEXT</a>
+     </div>
+  </div>
+  
+  <div class="main" data-role="page" id="pagetwo">
+     <div class="content">
+         <h1>Feedback</h1>
+         <p>
+             Please tell us why you gave this score: 
+         </p>
+         <div class="textbox">
+             <textarea id="field" onkeyup="countChar(this)" placeholder="Enter comments (1000 characters)"></textarea>
+             <div id="charNum">0/1000</div>
+         </div>
+     </div>
+     <div class="btn_box">
+         <a class="button" href="#pageone" data-transition="slide">PREVIOUS</a>
+         <a class="button" href="#pagethree" data-transition="slide">DONE</a>
+     </div>
+  </div>
+  
+  <div class="main" data-role="page" id="pagethree">
+     <div class="content">
+         <h1>Feedback</h1>
+         <p>
+             Your feedback helps us improve our products!
+         </p>
+         <p>
+             We will contact you again in the future. Enjoy your new Nokia device! 
+         </p>
+         <label class="myCheckbox">
+            <input type="checkbox" name="test" />
+            <span style="font-size:16px;color:#757575;font-weight:normal;">Don’t show again.</span>
+
+        </label>
+     </div>
+     <div class="btn_box">
+         <a class="button" href="#">OK</a>
+     </div>
+  </div>
+    <script>
+      function countChar(val) {
+        var len = val.value.length;
+        $('#charNum').text(len+'/1000');
+        // if (len >= 500) {
+        //   val.value = val.value.substring(0, 500);
+        // } else {
+        //   $('#charNum').text(500 - len);
+        // }
+      };
+    </script>   
+    
+</body>
+</html>
