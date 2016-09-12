@@ -10,7 +10,7 @@
 
     <style>
         html,body{margin:0;padding:0;font-family: "Microsoft JhengHei","Microsoft YaHei", Verdana, Arial;}
-        .main{width: 100%;position: relative;min-height: 250px;}
+        .main{width: 100%;position: relative;min-height: 200px;}
         .content{margin: 24px;}
         h1{margin-bottom: 20px;font-size: 20px;color: #333;}
         p{margin-bottom: 20px;font-size: 16px;color: #757575;}
@@ -24,7 +24,8 @@
         .main .btn_box{height: 52px;　margin-top: -52px;padding: 8px;position: absolute;bottom: 0;right: 0;}
         .main .btn_box .button{color: #1193f6;margin-right: 8px;padding-right: 8px;padding-left: 8px; display: inline-block;font-size: 14px;text-decoration: none;height: 36px; line-height: 36px;font-weight:bold;}
         .textbox{position: relative;}
-        .textbox textarea{padding: 8px;min-height: 210px;font-size: 14px;color: #bababa !important;}
+        .textbox textarea{width:100%;display: block;padding: 8px;min-height: 210px;font-size: 14px;color: #bababa !important;overflow: hidden;box-sizing:border-box;}
+        .textbox textarea:focus{border:1px solid #1193f6 !important;}
         .textbox #charNum{position: absolute;bottom: 0;right: 8px;font-size: 12px;color: #bababa;line-height: 36px;}
         /* remove rounded corners */
         .ui-btn {
@@ -32,7 +33,7 @@
           background-color: #f9f9f9 !important;
         }
     </style>
-        
+
 </head>
 
 <body>
@@ -55,22 +56,22 @@
           <option value="7">2</option>
           <option value="7">1</option>
          </select>
-         
+
      </div>
      <div class="btn_box">
          <a class="button" href="#">CANCEL</a>
          <a class="button" href="#pagetwo" data-transition="slide">NEXT</a>
      </div>
   </div>
-  
+
   <div class="main" data-role="page" id="pagetwo">
      <div class="content">
          <h1>Feedback</h1>
          <p>
-             Please tell us why you gave this score: 
+             Please tell us why you gave this score:
          </p>
          <div class="textbox">
-             <textarea id="field" onkeyup="countChar(this)" placeholder="Enter comments (1000 characters)"></textarea>
+             <textarea data-role="none" id="field" onkeyup="countChar(this)" placeholder="Enter comments (1000 characters)"></textarea>
              <div id="charNum">0/1000</div>
          </div>
      </div>
@@ -79,7 +80,7 @@
          <a class="button" href="#pagethree" data-transition="slide">DONE</a>
      </div>
   </div>
-  
+
   <div class="main" data-role="page" id="pagethree">
      <div class="content">
          <h1>Feedback</h1>
@@ -87,7 +88,7 @@
              Your feedback helps us improve our products!
          </p>
          <p>
-             We will contact you again in the future. Enjoy your new Nokia device! 
+             We will contact you again in the future. Enjoy your new Nokia device!
          </p>
          <label class="myCheckbox" style="margin-left: -12px;">
             <input type="checkbox" name="test" />
@@ -96,7 +97,7 @@
         </label>
      </div>
      <div class="btn_box">
-         <a class="button" href="#">OK</a>
+         <a class="button" href="#" data-role="none">OK</a>
      </div>
   </div>
     <script>
@@ -109,7 +110,7 @@
         //   $('#charNum').text(500 - len);
         // }
       };
-    </script>   
-    
+    </script>
+
 </body>
 </html>
